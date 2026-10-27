@@ -1,0 +1,8 @@
+# Ocultar dataset local
+data/
+
+# Ocultar diretórios de rascunho
+temp/
+
+# Ocultar arquivos de rascunho
+decisoes_ate_agora.txt
