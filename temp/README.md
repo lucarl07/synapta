@@ -52,36 +52,34 @@ Este repositório foi criado como entrega do desafio inicial proposto na Etapa 2
 
 ## 4. Descrição das colunas utilizadas
 
-<!-- Descreva com SUAS PRÓPRIAS PALAVRAS o que cada coluna representa. Liste apenas as colunas usadas na análise. -->
-
-| Coluna | Tipo | O que representa |
-|---|---|---|
-| `[coluna_preco]` | numérica | [Valor do aluguel anunciado, em reais, por mês?] |
-| `[coluna_localidade]` | categórica | [Bairro / distrito / região do imóvel] |
-| `[coluna_area]` | numérica | [Área do imóvel, em m²] |
-| `[coluna_quartos]` | numérica | [Quantidade de quartos] |
-| `[coluna_banheiros]` | numérica | [Quantidade de banheiros] |
-| `[coluna_vagas]` | numérica | [Vagas de garagem] |
+| Nome | Nome traduzido | Tipo | O que representa |
+|---|---|---|---|
+| `address` | Endereço | Categórico | Parte do endereço do imóvel, mais especificamente o logradouro (rua, avenida, etc.) |
+| `district` | Distrito | Categórico | Bairro em que o imóvel está localizado |
+| `area` | Área | Numérico | Área do imóvel em metros quadrados (m²) |
+| `bedrooms` | Quartos | Numérico | Quantidade de quartos |
+| `garage` | Garagem | Numérico | Quantidade de garagens |
+| `type` | Tipo | Categórico | Qual o tipo do imóvel (ex.: apartamento, casa, etc.) |
+| `rent` | Aluguel | Numérico | Valor do aluguel mensal em reais brasileiros (R$) |
+| `total` | Total | Numérico | Custo total mensal a ser pago, incluindo aluguel, condomínio, etc. |
 
 ## 5. Ferramentas e tecnologias
 
-- **Linguagem / ferramenta principal:** [Python / Google Colab / Planilha / Power BI]
-- **Bibliotecas:** [pandas, numpy, matplotlib, seaborn, ...]
-- **Ambiente:** [Google Colab / Jupyter Notebook / VS Code / ...]
-- **Versão do Python (se aplicável):** [3.x]
+- **Linguagem / ferramenta principal:** Python
+- **Bibliotecas:** `pandas` e suas dependências inclusas, como `numpy` e `matplotlib`.
+- **Ambiente:** Neovim com NvChad + Claude
+- **Versão do Python (se aplicável):** 3.14.8
 
 ## 6. Estrutura do repositório
 
 ```
 .
-├── README.md             # Este arquivo
-├── [notebook.ipynb]      # Arquivo principal da análise
-├── requirements.txt      # Dependências (quando houver código Python)
-├── images/               # Gráficos usados no README
-└── data/
-    └── LEIA-ME.md        # Onde baixar o dataset e onde posicioná-lo
+├── README.md           # Este arquivo
+├── main.py             # Arquivo principal da análise
+├── requirements.txt    # Dependências (quando houver código Python)
+├── images/             # Gráficos usados no README
+└── data/               # Arquivos do dataset
 ```
-<!-- Ajuste conforme a ferramenta escolhida (planilha, Power BI, etc.). -->
 
 ## 7. Como executar
 
