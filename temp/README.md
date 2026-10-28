@@ -83,24 +83,19 @@ Este repositório foi criado como entrega do desafio inicial proposto na Etapa 2
 
 ## 7. Como executar
 
-### 7.1 Baixar os dados
-1. Acesse o dataset no Kaggle: [link do dataset]
-2. Baixe o arquivo `[nome_do_arquivo.csv]` (é necessário estar logado no Kaggle).
-3. Coloque o arquivo na pasta `data/` com o nome `[nome_do_arquivo.csv]`.
-
-### 7.2 Instalar dependências
+### 7.1. Instalar dependências
 ```bash
-git clone [link do repositório]
-cd [nome-do-repositorio]
+git clone https://github.com/lucarl07/portfolio.git
+cd portfolio
 python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 7.3 Executar ou visualizar
-- **Jupyter:** `jupyter notebook [notebook.ipynb]` e execute as células em ordem.
-- **Google Colab:** [link do notebook] (envie o dataset ao ambiente quando solicitado).
-- **Planilha / Power BI:** abra `[nome_do_arquivo]` e [instrução de uso, ex.: atualize o caminho da fonte de dados].
+### 7.2. Executar ou visualizar
+```bash
+python main.py
+```
 
 ## 8. Limpeza e preparação dos dados
 
@@ -217,8 +212,8 @@ Desenvolvido por **[Seu nome completo]** - [Sua matrícula] - [Ano]
 CHECKLIST ANTES DE ENVIAR (apague esta seção depois)
 
 Tarefas do edital:
-[ ] Colunas descritas com minhas próprias palavras
-[ ] Nº de linhas e colunas informado
+[X] Colunas descritas com minhas próprias palavras
+[X] Nº de linhas e colunas informado
 [ ] Ausentes, repetidos e inconsistentes verificados (ou registrado que não houve alteração)
 [ ] Decisões de preparação explicadas
 [ ] Média e mediana calculadas + explicação da diferença
@@ -230,15 +225,15 @@ Tarefas do edital:
 [ ] Pergunta orientadora respondida (incluindo o que os dados não permitem concluir)
 
 Repositório:
-[ ] Arquivo principal da análise (notebook, .py, planilha ou .pbix)
+[X] Arquivo principal da análise (notebook, .py, planilha ou .pbix)
 [ ] README.md sem nenhum [colchete] restante
-[ ] requirements.txt (se usou Python)
+[X] requirements.txt (se usou Python)
 [ ] Pasta images/ com os gráficos referenciados
 [ ] Dataset NÃO republicado se a licença não permitir (link + instruções)
 [ ] Declaração de IA preenchida (uma opção só)
 [ ] Repositório público e link testado
 
 E-mail:
-[ ] Assunto: Desafio SYNAPTA - [nome completo]
+[X] Assunto: Desafio SYNAPTA - [nome completo]
 [ ] Corpo: nome completo, matrícula, período atual, projeto escolhido e link do GitHub
 -->
