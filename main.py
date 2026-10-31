@@ -15,7 +15,11 @@ if ask_yes_no(
 # Obter média e mediana dos aluguéis:
 mean_rent = df['rent'].mean()
 median_rent = df['rent'].median()
-print_section("Valores", f"Média dos aluguéis: {mean_rent} \nMediana dos aluguéis: {median_rent}")
+
+print_section("Aluguel - Informações Básicas", 
+    "Valor médio dos aluguéis: " + f"R$ {mean_rent:.2f}" + 
+    "\nValor mediano dos aluguéis: " + f"R$ {median_rent:.2f}"
+)
 
 print('|==== FIM DO PROGRAMA ====|')
 
