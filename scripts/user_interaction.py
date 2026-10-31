@@ -11,3 +11,8 @@ def ask_yes_no(prompt: str, default: bool = True) -> bool:
             return False
         print("Resposta inválida. Tente novamente.")
 
+def print_section(title: str | None, content: str):
+    if not title:
+        print(content, end="\n\n")
+    else:
+        print(f"|==== {title.upper()} ====|", content, sep="\n", end="\n\n")
