@@ -15,7 +15,7 @@ coluna utilizada representa.
 ou valores que pareçam inconsistentes.
 - [X] Explicar as decisões tomadas na preparação dos dados. Caso nenhuma alteração seja necessária,
 registrar essa conclusão.
-- [ ] Calcular o preço médio e o preço mediano dos aluguéis e explicar, de forma simples, por que os dois
+- [X] Calcular o preço médio e o preço mediano dos aluguéis e explicar, de forma simples, por que os dois
 valores podem ser diferentes.
 - [ ] Identificar as localidades com maiores e menores preços médios, utilizando apenas grupos com
 quantidade razoável de registros.
