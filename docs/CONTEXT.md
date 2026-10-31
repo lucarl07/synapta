@@ -13,7 +13,7 @@ cômodos podem estar relacionadas ao valor anunciado.
 coluna utilizada representa.
 - [X] Informar a quantidade de linhas e colunas e verificar se existem valores ausentes, registros repetidos
 ou valores que pareçam inconsistentes.
-- [ ] Explicar as decisões tomadas na preparação dos dados. Caso nenhuma alteração seja necessária,
+- [X] Explicar as decisões tomadas na preparação dos dados. Caso nenhuma alteração seja necessária,
 registrar essa conclusão.
 - [ ] Calcular o preço médio e o preço mediano dos aluguéis e explicar, de forma simples, por que os dois
 valores podem ser diferentes.
