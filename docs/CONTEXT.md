@@ -17,7 +17,7 @@ ou valores que pareçam inconsistentes.
 registrar essa conclusão.
 - [X] Calcular o preço médio e o preço mediano dos aluguéis e explicar, de forma simples, por que os dois
 valores podem ser diferentes.
-- [ ] Identificar as localidades com maiores e menores preços médios, utilizando apenas grupos com
+- [X] Identificar as localidades com maiores e menores preços médios, utilizando apenas grupos com
 quantidade razoável de registros.
 - [ ] Comparar o valor do aluguel com pelo menos duas características disponíveis, como área,
 quantidade de quartos, banheiros ou vagas.
