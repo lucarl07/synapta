@@ -36,18 +36,19 @@ top_districts = districts.loc[districts >= cutoff_count].index
 # Obter os distritos com o menor e maior preço médio, desde que tenham no mínimo 8 imóveis listados:
 districts_mean_rent = (
     df.groupby('district')['rent']
-    .mean()
-    .rename('mean_rent') # type: ignore[arg-type] 
+    .agg(mean_rent='mean', n_records='count')
     .loc[top_districts]
-    .sort_values(ascending=False)
+    .sort_values('mean_rent', ascending=False)
     .reset_index() # Usa um índice numérico
+    .rename(columns={
+        'district': 'Localidade',
+        'mean_rent': 'Aluguel médio (R$)',
+        'n_records': 'Qtd. de registros',
+    })
 )
 
 top_3_highest_rent = districts_mean_rent.head(3)
-top_3_highest_rent.columns = ['Localidade', 'Aluguel Médio (R$)'] 
-
 top_3_lowest_rent = districts_mean_rent.tail(3)[::-1].reset_index(drop=True)
-top_3_lowest_rent.columns = ['Localidade', 'Aluguel Médio (R$)'] 
 
 print_section("Top 3 localidades com maior aluguel médio", top_3_highest_rent)
 print_section("Top 3 localidades com menor aluguel médio", top_3_lowest_rent)
