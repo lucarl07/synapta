@@ -25,6 +25,8 @@ if ask_yes_no(
     False
 ): print_df_stats(df)
 
+print("") # Linha vazia, apenas para separar pré-análise da análise em si.
+
 # Obter média e mediana dos aluguéis:
 mean_rent = df['rent'].mean()
 median_rent = df['rent'].median()
