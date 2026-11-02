@@ -7,14 +7,16 @@ from scripts.user_interaction import ask_yes_no, print_section
 # ==:== Configurações do Pandas ==:==
 pd.options.display.float_format = '{:.2f}'.format
 
+# Ler DataFrame:
 df = pd.read_csv('data/Sao_Paulo_housing_prices_20230501.csv')
 
+# Verificação e limpeza opcionais:
 if ask_yes_no(
     'Gostaria de verificar se os dados do dataset estão incoerentes? (N/s) \n--> ', 
     False
 ):
-    print_df_stats(df)
     df = cleanse_df(df)
+    print_df_stats(df)
 
 # Obter média e mediana dos aluguéis:
 mean_rent = df['rent'].mean()
