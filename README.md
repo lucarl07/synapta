@@ -105,7 +105,7 @@ python main.py
 |---|---|---|
 | Valores ausentes | Nenhum valor ausente encontrado | Exibir (opcionalmente) ao usuário informações do dataset, mostrando que não há valores ausentes. |
 | Registros repetidos | Nenhum registro repetido encontrado | Uso (opcional) da função `cleanse_data`, permitindo a substituição de valores ausentes + remoção de duplicatas, apenas no caso de uma eventual expansão do dataset. |
-| Valores inconsistentes | 1. Área igual a zero <br/> 2. Nenhum quarto em imóveis que não são studios ou kitnets | Registros filtrados para fora do DataFrame, visto que podem interferir com a análise realizada dos dados. |
+| Valores inconsistentes | 1. Ímóveis de área menor que o mínimo permitido pela prefeitura (8 m²) <br/> 2. Nenhum quarto em imóveis que não são studios ou kitnets | Registros filtrados para fora do DataFrame, visto que podem interferir com a análise realizada dos dados. |
 | Tipos de dados | Nenhuma inconsistência de dados encontrada. | Sem decisão necessária. |
 | Filtros ou novas variáveis | [Ex.: apenas aluguel; criação de `preco_por_m2`] | [Por quê] |
 
