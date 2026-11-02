@@ -10,13 +10,20 @@ pd.options.display.float_format = '{:.2f}'.format
 # Ler DataFrame:
 df = pd.read_csv('data/Sao_Paulo_housing_prices_20230501.csv')
 
-# Verificação e limpeza opcionais:
+# Verificação Pré-Limpeza (opcional):
 if ask_yes_no(
-    'Gostaria de verificar se os dados do dataset estão incoerentes? (N/s) \n--> ', 
+    'Gostaria de verificar como estão os dados antes da limpeza? (s/N) \n--> ', 
     False
-):
-    df = cleanse_df(df)
-    print_df_stats(df)
+): print_df_stats(df)
+
+# Limpeza obrigatória:
+df = cleanse_df(df)
+
+# Verificação Pós-Limpeza (opcional):
+if ask_yes_no(
+    'Gostaria de verificar como estão os dados após a limpeza? (s/N) \n--> ', 
+    False
+): print_df_stats(df)
 
 # Obter média e mediana dos aluguéis:
 mean_rent = df['rent'].mean()
