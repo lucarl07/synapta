@@ -57,7 +57,10 @@ districts_mean_rent = (
 )
 
 top_3_highest_rent = districts_mean_rent.head(3)
+top_3_highest_rent.index = pd.RangeIndex(start=1, stop=4, name="N°")
+
 top_3_lowest_rent = districts_mean_rent.tail(3)[::-1].reset_index(drop=True)
+top_3_lowest_rent.index = pd.RangeIndex(start=1, stop=4, name="N°")
 
 print_section("Top 3 localidades com maior aluguel médio", top_3_highest_rent)
 print_section("Top 3 localidades com menor aluguel médio", top_3_lowest_rent)
