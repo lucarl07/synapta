@@ -68,7 +68,7 @@ Este repositório foi criado como entrega do desafio inicial proposto na Etapa 2
 - **Linguagem / ferramenta principal:** Python
 - **Bibliotecas:** `pandas` e suas dependências inclusas, como `numpy` e `matplotlib`.
 - **Ambiente:** Neovim com NvChad + Claude
-- **Versão do Python (se aplicável):** 3.14.8
+- **Versão do Python:** 3.14.8
 
 ## 6. Estrutura do repositório
 
@@ -88,7 +88,7 @@ Este repositório foi criado como entrega do desafio inicial proposto na Etapa 2
 git clone https://github.com/lucarl07/portfolio.git
 cd portfolio
 python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
+source .venv/bin/activate        # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
