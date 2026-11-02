@@ -42,13 +42,13 @@ districts_mean_rent = (
 )
 
 top_3_highest_rent = districts_mean_rent.head(3)
-top_3_highest_rent.columns = ['Bairro', 'Aluguel Médio (R$)'] 
+top_3_highest_rent.columns = ['Localidade', 'Aluguel Médio (R$)'] 
 
 top_3_lowest_rent = districts_mean_rent.tail(3)[::-1].reset_index(drop=True)
-top_3_lowest_rent.columns = ['Bairro', 'Aluguel Médio (R$)'] 
+top_3_lowest_rent.columns = ['Localidade', 'Aluguel Médio (R$)'] 
 
-print_section("Top 3 bairros com maior aluguel médio", top_3_highest_rent)
-print_section("Top 3 bairros com menor aluguel médio", top_3_lowest_rent)
+print_section("Top 3 localidades com maior aluguel médio", top_3_highest_rent)
+print_section("Top 3 localidades com menor aluguel médio", top_3_lowest_rent)
 
 print('|==== FIM DO PROGRAMA ====|')
 
