@@ -4,6 +4,9 @@ import pandas as pd
 from scripts.pre_analysis import cleanse_df, print_df_stats
 from scripts.user_interaction import ask_yes_no, print_section
 
+# ==:== Configurações do Pandas ==:==
+pd.options.display.float_format = '{:.2f}'.format
+
 df = pd.read_csv('data/Sao_Paulo_housing_prices_20230501.csv')
 
 if ask_yes_no(
