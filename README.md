@@ -1,6 +1,6 @@
 <!--
 MODELO DE README - DESAFIO SYNAPTA - OPÇÃO 1: ANÁLISE DE PREÇOS DE ALUGUEL EM SÃO PAULO
-Substitua tudo que estiver entre [colchetes] e apague os comentários (<!-- -->) antes de entregar.
+Substitua tudo que estiver entre [colchetes] e apague os comentários antes de entregar.
 Não deixe nenhum [colchete] restante no arquivo final.
 -->
 
