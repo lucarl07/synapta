@@ -38,15 +38,14 @@ districts_mean_rent = (
     .reset_index() # Usa um índice numérico
 )
 
-highest_rent_district = districts_mean_rent.iloc[0]
-lowest_rent_district = districts_mean_rent.iloc[-1]
+top_3_highest_rent = districts_mean_rent.head(3)
+top_3_highest_rent.columns = ['Bairro', 'Aluguel Médio (R$)'] 
 
-print_section("Aluguel - Por distrito",
-    f"Distrito com maior valor médio: {highest_rent_district['district']} (R$ {highest_rent_district['mean_rent']:.2f})" +
-    f"\nDistrito com menor valor médio: {lowest_rent_district['district']} (R$ {lowest_rent_district['mean_rent']:.2f})" +
-    f"\n\nOBS.: A quantidade mínima de imóveis que um distrito precisa ter para ser contabilizado nesta análise é {cutoff_count}."
-)
+top_3_lowest_rent = districts_mean_rent.tail(3)[::-1].reset_index(drop=True)
+top_3_lowest_rent.columns = ['Bairro', 'Aluguel Médio (R$)'] 
 
+print_section("Top 3 bairros com maior aluguel médio", top_3_highest_rent)
+print_section("Top 3 bairros com menor aluguel médio", top_3_lowest_rent)
 
 print('|==== FIM DO PROGRAMA ====|')
 
