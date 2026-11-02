@@ -40,6 +40,23 @@ def cleanse_df(df: DataFrame):
 
     # Caso existirem linhas duplicadas:
     df = df.drop_duplicates()
+
+    # Para os imóveis com menos de 8 m² de área útil total (mínimo de acordo com a 
+    # Lei nº 16.642/2017, da cidade de São Paulo):
+    MIN_USABLE_AREA = 8 
+    df = df.filter(cond=df['area'] >= MIN_USABLE_AREA) 
+
+    # Para os imóveis que não são SKs (SK = Studio ou kitnet) com 0 quartos:
+    MIN_BEDROOMS_FOR_NON_SKs = 1
+
+    no_bedroom_nor_is_sk_idx = df[
+        (df["type"] != "Studio e kitnet") & 
+        (df["bedrooms"] < MIN_BEDROOMS_FOR_NON_SKs)
+    ].index
+
+    df = df.drop(no_bedroom_nor_is_sk_idx)
+
+    print("Limpeza efetuada com sucesso.")
     
     return df
 
