@@ -66,5 +66,28 @@ top_3_lowest_rent.index = startsAt1Index(top_3_lowest_rent)
 print_section("Top 3 localidades com maior aluguel médio", top_3_highest_rent)
 print_section("Top 3 localidades com menor aluguel médio", top_3_lowest_rent)
 
+# Obter os imóveis com o maior valor de aluguel por metro quadrado de área:
+rent_per_sm_df = (
+    df.assign(rent_per_sm=lambda d: d['rent'] / d['area'])
+      .sort_values(by='rent_per_sm', ascending=False)
+      .reset_index()
+      .drop(columns=['index', 'total'])
+)
+
+top_10_rent_per_sm = rent_per_sm_df.head(10).rename(columns={
+    'address': 'Endereço',
+    'district': 'Localidade',
+    'area': 'Área (m²)',
+    'bedrooms': 'Quartos',
+    'garage': 'Vagas de estacionamento',
+    'type': 'Tipo',
+    'rent': 'Aluguel (R$)',
+    'rent_per_sm': 'Aluguel por m²',
+})
+top_10_rent_per_sm.index = startsAt1Index(top_10_rent_per_sm)
+
+print_section("Imóveis com maior aluguel por metro quadrado", str(top_10_rent_per_sm))
+
+# ==:== FIM ==:== 
 print('|==== FIM DO PROGRAMA ====|')
 
