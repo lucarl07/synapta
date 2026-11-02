@@ -103,15 +103,13 @@ python main.py
 
 | Verificação | Resultado encontrado | Decisão tomada e justificativa |
 |---|---|---|
-| Valores ausentes | Nenhum valor ausente encontrado | Exibir (opcionalmente) ao usuário informações do dataset (como DataFrame), mostrando que não há valores ausentes. |
+| Valores ausentes | Nenhum valor ausente encontrado | Exibir (opcionalmente) ao usuário informações do dataset, mostrando que não há valores ausentes. |
 | Registros repetidos | Nenhum registro repetido encontrado | Uso (opcional) da função `cleanse_data`, permitindo a substituição de valores ausentes + remoção de duplicatas, apenas no caso de uma eventual expansão do dataset. |
-| Valores inconsistentes | [Ex.: área igual a zero, preços fora de uma faixa plausível, quartos = 0 em casas] | [Ex.: excluídos / mantidos e por quê] |
-| Tipos de dados | [Ex.: preço lido como texto] | [Ex.: convertido para numérico] |
+| Valores inconsistentes | 1. Área igual a zero <br/> 2. Nenhum quarto em imóveis que não são studios ou kitnets | Registros filtrados para fora do DataFrame, visto que podem interferir com a análise realizada dos dados. |
+| Tipos de dados | Nenhuma inconsistência de dados encontrada. | Sem decisão necessária. |
 | Filtros ou novas variáveis | [Ex.: apenas aluguel; criação de `preco_por_m2`] | [Por quê] |
 
-<!-- Se nenhuma alteração foi necessária em alguma verificação, registre isso explicitamente: "Nenhuma alteração foi necessária porque ...". -->
-
-**Resultado final:** Nenhuma alteração foi necessária; o conjunto se manteve com 11657 linhas e 8 colunas.
+**Resultado final:** Após passar por tratamentos, apenas valores inconsistentes foram encontrados e removidos. O conjunto foi de 11657 linhas x 8 colunas para 11639 linhas x 8 colunas.
 
 ## 9. Resultados
 
