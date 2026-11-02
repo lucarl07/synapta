@@ -103,15 +103,15 @@ python main.py
 
 | Verificação | Resultado encontrado | Decisão tomada e justificativa |
 |---|---|---|
-| Valores ausentes | [Ex.: N ausentes na coluna X / nenhum] | [Ex.: linhas removidas porque... / mantidos porque...] |
-| Registros repetidos | [Ex.: N duplicatas / nenhuma] | [Ex.: removidas porque... / não houve necessidade] |
+| Valores ausentes | Nenhum valor ausente encontrado | Exibir (opcionalmente) ao usuário informações do dataset (como DataFrame), mostrando que não há valores ausentes. |
+| Registros repetidos | Nenhum registro repetido encontrado | Uso (opcional) da função `cleanse_data`, permitindo a substituição de valores ausentes + remoção de duplicatas, apenas no caso de uma eventual expansão do dataset. |
 | Valores inconsistentes | [Ex.: área igual a zero, preços fora de uma faixa plausível, quartos = 0 em casas] | [Ex.: excluídos / mantidos e por quê] |
 | Tipos de dados | [Ex.: preço lido como texto] | [Ex.: convertido para numérico] |
 | Filtros ou novas variáveis | [Ex.: apenas aluguel; criação de `preco_por_m2`] | [Por quê] |
 
 <!-- Se nenhuma alteração foi necessária em alguma verificação, registre isso explicitamente: "Nenhuma alteração foi necessária porque ...". -->
 
-**Resultado final:** o conjunto passou de [N linhas x M colunas] para [N' linhas x M' colunas].
+**Resultado final:** Nenhuma alteração foi necessária; o conjunto se manteve com 11657 linhas e 8 colunas.
 
 ## 9. Resultados
 
