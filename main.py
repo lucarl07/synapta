@@ -30,8 +30,8 @@ mean_rent = df['rent'].mean()
 median_rent = df['rent'].median()
 
 print_section("Aluguel - Informações Básicas", 
-    "Valor médio dos aluguéis (R$): " + f"{mean_rent:.2f}" + 
-    "\nValor mediano dos aluguéis (R$): " + f"{median_rent:.2f}"
+    "Valor médio dos aluguéis: " + f"R$ {mean_rent:.2f}" + 
+    "\nValor mediano dos aluguéis: " + f"R$ {median_rent:.2f}"
 )
 
 # Identificar localidades (distritos) com quantidades consideráveis de registros:
