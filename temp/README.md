@@ -130,16 +130,16 @@ No total, tenha pelo menos 3 gráficos simples e legíveis. -->
 
 ### 9.2 Localidades com maiores e menores preços médios
 
-**Critério de agrupamento:** foram consideradas apenas localidades com no mínimo **[N] registros**, porque [justificativa: médias de grupos muito pequenos não são confiáveis].
+**Critério de agrupamento:** Foram consideradas apenas localidades com no mínimo **8 registros**, porque parte considerável dos registros não possuia nem 3 imóveis listados; Ao filtrar os registros pelos bairros 25% mais recorrentes, foi encontrado que, de um todo de 300 localidades, a menos recorrente delas (Campanário) apareceu 8 vezes. Ao colocar o piso de ocorrências p/a análise como 8, foram inclusos mais 20 distritos, sendo o último da lista a Vila Arriete, totalizando 320 bairros analisados.
 
 | Posição | Localidade | Preço médio (R$) | Nº de registros |
 |---|---|---|---|
-| Maiores 1 | [local] | [valor] | [n] |
-| Maiores 2 | [local] | [valor] | [n] |
-| Maiores 3 | [local] | [valor] | [n] |
-| Menores 1 | [local] | [valor] | [n] |
-| Menores 2 | [local] | [valor] | [n] |
-| Menores 3 | [local] | [valor] | [n] |
+| Maiores 1 | Alphaville | 11.247,46 | [n] |
+| Maiores 2 | Chácara Monte Alegre | 10.205,00 | [n] |
+| Maiores 3 | Jardim Fonte do Morumbi | 9.449,00 | [n] |
+| Menores 1 | Parque Edu Chaves | 1.110,44 | [n] |
+| Menores 2 | Vila Campanela | 1.172,73 | [n] |
+| Menores 3 | Jardim Vergueiro (Sacomã) | 1.220,25 | [n] |
 
 ![Preço médio por localidade](images/grafico_localidades.png)
 
