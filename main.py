@@ -1,6 +1,8 @@
 import math
 import pandas as pd
+import matplotlib.pyplot as plt
 
+from scripts.plots import plot_rent_histogram, plot_rent_per_sm_median_per_bedrooms, plot_rent_per_sm_median_per_parking_spots
 from scripts.pre_analysis import cleanse_df, print_df_stats
 from scripts.user_interaction import ask_yes_no, print_section
 from scripts.utils import startsAt1Index
@@ -88,6 +90,32 @@ top_10_rent_per_sm.index = startsAt1Index(top_10_rent_per_sm)
 
 print_section("Imóveis com maior aluguel por metro quadrado", str(top_10_rent_per_sm))
 
+print('|==== GRÁFICOS ====|')
+
+# GRÁFICO 1: Histograma da distribuição dos aluguéis
+plot1 = plot_rent_histogram(df, mean_rent, median_rent)
+plt.savefig('./images/distribuicao_alugueis.png', dpi=150, bbox_inches='tight')
+
+if ask_yes_no("Você deseja exibir o histograma: \"Distribuição dos aluguéis\"? (S/n) \n--> "):
+    plt.show()
+plt.close(plot1)
+
+# GRÁFICO 2: Mediana do aluguel por metros quadrados x Número de quartos
+plot2 = plot_rent_per_sm_median_per_bedrooms(rent_per_sm_df)
+plt.savefig('./images/mediana_aluguel_por_m2_por_Nquartos.png', dpi=150, bbox_inches='tight')
+
+if ask_yes_no("Você deseja exibir o gráfico de barras: \"Mediana do aluguel por m² número de quartos\"? (S/n) \n--> "):
+    plt.show()
+plt.close(plot2)
+
+# GRÁFICO 3: Mediana do aluguel por metros quadrados x Número de vagas de estacionamento
+plot3 = plot_rent_per_sm_median_per_parking_spots(rent_per_sm_df)
+plt.savefig('./images/mediana_aluguel_por_m2_por_Nvagas.png', dpi=150, bbox_inches='tight')
+
+if ask_yes_no("Você deseja exibir o gráfico de barras: \"Mediana do aluguel por m² pelo número de vagas de estacionamento\"? (S/n) \n--> "):
+    plt.show()
+plt.close(plot3)
+
 # ==:== FIM ==:== 
-print('|==== FIM DO PROGRAMA ====|')
+print('\n|==== FIM DO PROGRAMA ====|')
 
