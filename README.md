@@ -161,28 +161,12 @@ python main.py
 
 **Exemplo:** no conjunto dos registros que não tem nenhuma vaga de estacionamento, a mediana do valor do aluguel por m² fica um pouco acima de R$ 35,00.
 
-## 10. Conclusões
-
-<!-- Mínimo de 5 conclusões objetivas, cada uma apoiada em um resultado da seção 9. -->
-
-1. [Conclusão 1 - ex.: "A mediana do aluguel (R$ X) é menor que a média (R$ Y), indicando valores muito altos que puxam a média para cima."]
-2. [Conclusão 2 - sobre as localidades mais caras e mais baratas.]
-3. [Conclusão 3 - sobre a relação entre aluguel e a característica 1.]
-4. [Conclusão 4 - sobre a relação entre aluguel e a característica 2.]
-5. [Conclusão 5]
-
-### Resposta à pergunta orientadora
-
-**Quais características parecem acompanhar os maiores e os menores preços?** [Resposta direta, baseada nas conclusões acima.]
-
-**O que os dados não permitem concluir?** [Ex.: não permitem afirmar que a área *causa* o aluguel maior; não mostram o preço efetivamente pago; não representam todos os imóveis da cidade.]
-
-## 11. Limitações da análise
+## 10. Limitações da análise
 
 - **Ausência de informações:** Senti a falta de um dado que seria bastante interessante para análise: a quantidade de banheiros no imóvel. Ademais, uma explicação melhor sobre a coluna de valor total do imóvel poderia ser dada.
 - **Concentração dos anúncios:** Mais de 3/4 das localidades não possui nem 10 imóveis anunciados, o que dificultaria uma análise precisa agrupando os registros por bairro.
 
-## 12. Sobre o uso de inteligência artificial (IA)
+## 11. Sobre o uso de inteligência artificial (IA)
 
 Utilizei o agente Claude Sonnet 5.5 para finalidades como:
 - Estruturação inicial dessa documentação (README.md);
@@ -191,7 +175,7 @@ Utilizei o agente Claude Sonnet 5.5 para finalidades como:
 
 Todas respostas foram verificadas, analisando em primeiro lugar as páginas de documentação para os recuros utilizados, testando o código e, quando cabível, comparando com registros reais no arquivo CSV. As decisões de limpeza, a interpretação dos resultados e as conclusões são de minha autoria.
 
-## 13. Referências
+## 12. Referências
 
 - [Sao Paulo Housing Prices - Kaggle](https://www.kaggle.com/datasets/...)
 - [Pandas: API Reference](https://pandas.pydata.org/docs/reference/api)
