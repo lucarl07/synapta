@@ -19,9 +19,9 @@ registrar essa conclusão.
 valores podem ser diferentes.
 - [X] Identificar as localidades com maiores e menores preços médios, utilizando apenas grupos com
 quantidade razoável de registros.
-- [ ] Comparar o valor do aluguel com pelo menos duas características disponíveis, como área,
+- [~] Comparar o valor do aluguel com pelo menos duas características disponíveis, como área,
 quantidade de quartos, banheiros ou vagas.
-- [ ] Criar pelo menos três gráficos simples e legíveis, com título, identificação dos eixos e breve
+- [X] Criar pelo menos três gráficos simples e legíveis, com título, identificação dos eixos e breve
 explicação do que cada gráfico mostra.
 - [ ] Apresentar pelo menos cinco conclusões objetivas apoiadas nos resultados encontrados.
 - [ ] Registrar limitações da análise, como ausência de informações, concentração dos anúncios ou

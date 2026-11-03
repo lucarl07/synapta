@@ -7,7 +7,7 @@ def plot_rent_histogram(df: DataFrame, media, mediana):
     rent_clipped = rent.filter(cond=rent <= rent.quantile(0.99))
 
     fig, ax = plt.subplots()
-    rent_clipped.plot.hist(bins=70)
+    rent_clipped.plot.hist(bins=50)
 
     ax.set_title('Distribuição dos aluguéis')
     ax.axvline(media, color='red', linestyle='--', label='Média')

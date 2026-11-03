@@ -69,14 +69,14 @@ print_section("Top 3 localidades com maior aluguel médio", top_3_highest_rent)
 print_section("Top 3 localidades com menor aluguel médio", top_3_lowest_rent)
 
 # Obter os imóveis com o maior valor de aluguel por metro quadrado de área:
-rent_per_sm_df = (
+df = (
     df.assign(rent_per_sm=lambda d: d['rent'] / d['area'])
       .sort_values(by='rent_per_sm', ascending=False)
       .reset_index()
       .drop(columns=['index', 'total'])
 )
 
-top_10_rent_per_sm = rent_per_sm_df.head(10).rename(columns={
+top_10_rent_per_sm = df.head(10).rename(columns={
     'address': 'Endereço',
     'district': 'Localidade',
     'area': 'Área (m²)',
@@ -101,7 +101,7 @@ if ask_yes_no("Você deseja exibir o histograma: \"Distribuição dos aluguéis\
 plt.close(plot1)
 
 # GRÁFICO 2: Mediana do aluguel por metros quadrados x Número de quartos
-plot2 = plot_rent_per_sm_median_per_bedrooms(rent_per_sm_df)
+plot2 = plot_rent_per_sm_median_per_bedrooms(df)
 plt.savefig('./images/mediana_aluguel_por_m2_por_Nquartos.png', dpi=150, bbox_inches='tight')
 
 if ask_yes_no("Você deseja exibir o gráfico de barras: \"Mediana do aluguel por m² número de quartos\"? (S/n) \n--> "):
@@ -109,7 +109,7 @@ if ask_yes_no("Você deseja exibir o gráfico de barras: \"Mediana do aluguel po
 plt.close(plot2)
 
 # GRÁFICO 3: Mediana do aluguel por metros quadrados x Número de vagas de estacionamento
-plot3 = plot_rent_per_sm_median_per_parking_spots(rent_per_sm_df)
+plot3 = plot_rent_per_sm_median_per_parking_spots(df)
 plt.savefig('./images/mediana_aluguel_por_m2_por_Nvagas.png', dpi=150, bbox_inches='tight')
 
 if ask_yes_no("Você deseja exibir o gráfico de barras: \"Mediana do aluguel por m² pelo número de vagas de estacionamento\"? (S/n) \n--> "):

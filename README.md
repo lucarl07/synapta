@@ -22,7 +22,7 @@ Este repositório foi criado como entrega do desafio inicial proposto na Etapa 2
 
 ## 2. Objetivo e pergunta orientadora
 
-**Contexto:** [2 ou 3 linhas sobre o tema: imóveis disponíveis para aluguel na cidade de São Paulo e a relação entre localização, área, quantidade de cômodos e valor anunciado.]
+**Objetivo:** Realizar uma análise de imóveis disponíveis para aluguel na cidade de São Paulo, relacionando sobretudo o aluguel com outros atributos, como localidade, área e amenidades presentes.
 
 **Pergunta orientadora:** Quais características parecem acompanhar os maiores e os menores preços de aluguel, e o que os dados não permitem concluir?
 
@@ -66,8 +66,8 @@ Este repositório foi criado como entrega do desafio inicial proposto na Etapa 2
 ## 5. Ferramentas e tecnologias
 
 - **Linguagem / ferramenta principal:** Python
-- **Bibliotecas:** `pandas` e suas dependências inclusas, como `numpy` e `matplotlib`.
-- **Ambiente:** Neovim com NvChad + Claude
+- **Bibliotecas:** `pandas` para análise de dados + `matplotlib` para geração de gráficos
+- **Ambiente:** Neovim com NvChad + Claude Sonnet 5.5 (versão gratuita)
 - **Versão do Python:** 3.14.8
 
 ## 6. Estrutura do repositório
@@ -76,9 +76,11 @@ Este repositório foi criado como entrega do desafio inicial proposto na Etapa 2
 .
 ├── README.md           # Este arquivo
 ├── main.py             # Arquivo principal da análise
-├── requirements.txt    # Dependências (quando houver código Python)
-├── images/             # Gráficos usados no README
-└── data/               # Arquivos do dataset
+├── requirements.txt    # Dependências Python
+├── data/               # Arquivos do dataset
+├── docs/               # Arquivos de documentação, usados somente para acompanhamento pessoal
+├── images/             # Gráficos usados no README, gerados em main.py
+└── utils/              # Funções complementares (validações, gráficos, etc.)
 ```
 
 ## 7. Como executar
@@ -105,26 +107,26 @@ python main.py
 |---|---|---|
 | Valores ausentes | Nenhum valor ausente encontrado | Exibir (opcionalmente) ao usuário informações do dataset, mostrando que não há valores ausentes. |
 | Registros repetidos | Nenhum registro repetido encontrado | Uso (opcional) da função `cleanse_data`, permitindo a substituição de valores ausentes + remoção de duplicatas, apenas no caso de uma eventual expansão do dataset. |
-| Valores inconsistentes | 1. Ímóveis de área menor que o mínimo permitido pela prefeitura (8 m²) <br/> 2. Nenhum quarto em imóveis que não são studios ou kitnets | Registros filtrados para fora do DataFrame, visto que podem interferir com a análise realizada dos dados. |
+| Valores inconsistentes | 1. Ímóveis de área menor que o mínimo permitido <br/> 2. Nenhum quarto em imóveis que não são studios ou kitnets | De acordo com a Lei nº 16.642/2017 da cidade de São Paulo, um imóvel deve ter uma área útil total de pelo menos 8 m²; nem todos os registros com menos do que isso devem ter área menor (ex.: área não conseguiu ser inclusa no dataset), mas por fins de acurácia e por não estarem em grande quantidade, os registros foram removidos. <br/> 2. Novamente, esse dado pode não ter sido capturado, porém por serem poucos casos encontrados, esses registros simplesmente foram removidos. |
 | Tipos de dados | Nenhuma inconsistência de dados encontrada. | Sem decisão necessária. |
-| Filtros ou novas variáveis | [Ex.: apenas aluguel; criação de `preco_por_m2`] | [Por quê] |
 
-**Resultado final:** Após passar por tratamentos, apenas valores inconsistentes foram encontrados e removidos. O conjunto foi de 11657 linhas x 8 colunas para 11639 linhas x 8 colunas.
+**Filtros ou novas variáveis incrementadas:**
+| Filtro/variável | Justificativa |
+|---|---|
+| Aluguel por metro quadrado (m²) | Permite obter uma métrica muito oscilante, importante para determinar o quão o imóvel é valorizado no mercado. |
+
+**Resultado final:** Após passar por tratamentos, registros inconsistentes foram encontrados e removidos, e uma coluna adicional (Aluguel por metro quadrado) foi adicionada. O conjunto foi de 11657 linhas x 8 colunas para 11639 linhas x 8 colunas.
 
 ## 9. Resultados
-
-<!-- Em cada subseção: o que foi pedido, o resultado (valor, tabela ou gráfico) e uma leitura curta.
-Todo gráfico precisa de título, eixos identificados e uma explicação breve do que mostra.
-No total, tenha pelo menos 3 gráficos simples e legíveis. -->
 
 ### 9.1 Preço médio e mediano do aluguel
 
 | Medida | Valor (R$) |
 |---|---|
-| Média | [valor] |
-| Mediana | [valor] |
+| Média | 3.250,50 |
+| Mediana | 2.420,00 |
 
-**Por que os valores diferem:** [Explicação simples: a média é influenciada por valores muito altos ou muito baixos; a mediana é o valor central e é menos sensível a eles. Relacione com o que você observou nos dados.]
+**Por que os valores diferem:** A média, por ser uma medida mais sensível a valores muito altos e/ou muito baixos - e também, possivelmente, pelo maior número de _outliers_ (valores discrepantes) de altíssimo aluguel -, ficou maior do que a mediana, que é um valor central, menos influenciado por eles.
 
 ### 9.2 Localidades com maiores e menores preços médios
 
@@ -139,28 +141,25 @@ No total, tenha pelo menos 3 gráficos simples e legíveis. -->
 | Menores 2 | Vila Campanela | 1.172,73 | [n] |
 | Menores 3 | Jardim Vergueiro (Sacomã) | 1.220,25 | [n] |
 
-![Preço médio por localidade](images/grafico_localidades.png)
+### 9.3 Distribuição dos aluguéis (frequência)
 
-**O que o gráfico mostra:** [1 ou 2 frases.]
+![Histograma contendo a distribuição dos aluguéis](images/distribuicao_alugueis.png)
 
-### 9.3 Aluguel x [característica 1 - ex.: área]
+**Descrição:** O gráfico mostra a frequência de 50 intervalos de valor de aluguel (de R$ 0 a R$ 14.000, aproximadamente) e sua frequência na base de dados.
 
-![Aluguel x área](images/grafico_area.png)
+**Observação:** Os _outliers_ (nesse caso, 1% dos valores mais altos) foram removidos, a fim de evitar que o gráfico ficasse muito espremido à esquerda.
 
-**O que o gráfico mostra:** [1 ou 2 frases.]
+### 9.4 Mediana do aluguel por metro quadrado (R$) x número de quartos
 
-**Observação:** [Relação aparente (positiva, fraca, sem padrão)? Se calculou correlação, informe o valor e lembre que ela não prova causa.]
+![Aluguel x quartos](images/mediana_aluguel_por_m2_por_Nquartos.png)
 
-### 9.4 Aluguel x [característica 2 - ex.: quantidade de quartos]
+**Exemplo:** no conjunto dos registros com 2 quartos, a mediana do valor do aluguel por m² fica entre R$ 30,00 e 40,00.
 
-![Aluguel x quartos](images/grafico_quartos.png)
+### 9.4 Mediana do aluguel por metro quadrado (R$) x número de vagas de estacionamento
 
-**O que o gráfico mostra:** [1 ou 2 frases.]
+![Aluguel x quartos](images/mediana_aluguel_por_m2_por_Nvagas.png)
 
-**Observação:** [...]
-
-### 9.5 Comparações adicionais (opcional)
-<!-- Banheiros, vagas, preço por m², etc. Apague esta subseção se não usar. -->
+**Exemplo:** no conjunto dos registros que não tem nenhuma vaga de estacionamento, a mediana do valor do aluguel por m² fica um pouco acima de R$ 35,00.
 
 ## 10. Conclusões
 
@@ -180,58 +179,25 @@ No total, tenha pelo menos 3 gráficos simples e legíveis. -->
 
 ## 11. Limitações da análise
 
-- **Ausência de informações:** [Ex.: faltam dados sobre idade do imóvel, padrão de acabamento, condomínio, proximidade de transporte.]
-- **Concentração dos anúncios:** [Ex.: parte dos bairros tem muitos anúncios e outros muito poucos; a faixa de preço predominante pode distorcer as médias.]
-- **Preço anunciado x preço negociado:** os valores são os anunciados e podem diferir do valor efetivamente fechado.
-- [Outras limitações encontradas, ex.: outliers, período dos dados, qualidade do preenchimento.]
+- **Ausência de informações:** Senti a falta de um dado que seria bastante interessante para análise: a quantidade de banheiros no imóvel. Ademais, uma explicação melhor sobre a coluna de valor total do imóvel poderia ser dada.
+- **Concentração dos anúncios:** Mais de 3/4 das localidades não possui nem 10 imóveis anunciados, o que dificultaria uma análise precisa agrupando os registros por bairro.
 
-**Possíveis trabalhos futuros:** [O que poderia ser feito com mais tempo ou dados.]
+## 12. Sobre o uso de inteligência artificial (IA)
 
-## 12. Declaração sobre o uso de inteligência artificial generativa
+Utilizei o agente Claude Sonnet 5.5 para finalidades como:
+- Estruturação inicial dessa documentação (README.md);
+- Auxiliar no processo de extração dos dados necessários com `pandas`;
+- Auxiliar na ideação dos tipos de gráficos a serem apresentados, com base nos dados obtidos;
 
-<!-- Escolha UMA das opções e apague a outra. Seja honesto e específico. -->
-
-**Opção A - Houve uso:**
-Utilizei [nome da ferramenta] para [finalidade: ex.: tirar dúvidas de sintaxe do pandas, revisar a redação do README, estruturar este modelo de documento]. As respostas foram verificadas da seguinte forma: [ex.: executei e testei todo o código, conferi os números calculados diretamente nos dados, comparei com a documentação oficial das bibliotecas]. As decisões de limpeza, a interpretação dos resultados e as conclusões são de minha autoria.
-
-**Opção B - Não houve uso:**
-Declaro que não utilizei inteligência artificial generativa na elaboração deste projeto.
+Todas respostas foram verificadas, analisando em primeiro lugar as páginas de documentação para os recuros utilizados, testando o código e, quando cabível, comparando com registros reais no arquivo CSV. As decisões de limpeza, a interpretação dos resultados e as conclusões são de minha autoria.
 
 ## 13. Referências
 
 - [Sao Paulo Housing Prices - Kaggle](https://www.kaggle.com/datasets/...)
-- [Documentação das bibliotecas utilizadas]
-- [Outros materiais consultados]
+- [Pandas: API Reference](https://pandas.pydata.org/docs/reference/api)
+- [Matplotlib: API Reference](https://matplotlib.org/stable/api/)
 
 ---
-Desenvolvido por **[Seu nome completo]** - [Sua matrícula] - [Ano]
 
-<!--
-CHECKLIST ANTES DE ENVIAR (apague esta seção depois)
+Desenvolvido por **Luiz Carlos dos Santos Júnior** - 01805589 - 2026
 
-Tarefas do edital:
-[X] Colunas descritas com minhas próprias palavras
-[X] Nº de linhas e colunas informado
-[ ] Ausentes, repetidos e inconsistentes verificados (ou registrado que não houve alteração)
-[ ] Decisões de preparação explicadas
-[ ] Média e mediana calculadas + explicação da diferença
-[ ] Maiores e menores preços médios por localidade, com mínimo de registros justificado
-[ ] Aluguel comparado com pelo menos 2 características
-[ ] Pelo menos 3 gráficos, com título, eixos e explicação
-[ ] Pelo menos 5 conclusões objetivas
-[ ] Limitações registradas
-[ ] Pergunta orientadora respondida (incluindo o que os dados não permitem concluir)
-
-Repositório:
-[X] Arquivo principal da análise (notebook, .py, planilha ou .pbix)
-[ ] README.md sem nenhum [colchete] restante
-[X] requirements.txt (se usou Python)
-[ ] Pasta images/ com os gráficos referenciados
-[ ] Dataset NÃO republicado se a licença não permitir (link + instruções)
-[ ] Declaração de IA preenchida (uma opção só)
-[ ] Repositório público e link testado
-
-E-mail:
-[X] Assunto: Desafio SYNAPTA - [nome completo]
-[ ] Corpo: nome completo, matrícula, período atual, projeto escolhido e link do GitHub
--->
