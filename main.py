@@ -2,10 +2,10 @@ import math
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from scripts.plots import plot_rent_histogram, plot_rent_per_sm_median_per_bedrooms, plot_rent_per_sm_median_per_parking_spots
-from scripts.pre_analysis import cleanse_df, print_df_stats
-from scripts.user_interaction import ask_yes_no, print_section
-from scripts.utils import startsAt1Index
+from utils.plots import plot_rent_histogram, plot_rent_per_sm_median_per_bedrooms, plot_rent_per_sm_median_per_parking_spots
+from utils.pre_analysis import cleanse_df, print_df_stats
+from utils.user_interaction import ask_yes_no, print_section
+from utils.misc import startsAt1Index
 
 # ==:== Configurações do Pandas ==:==
 pd.options.display.float_format = '{:.2f}'.format

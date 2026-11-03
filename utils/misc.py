@@ -1,3 +1,5 @@
+# ==:== Utilidades Miscelâneas ==:==
+
 import pandas as pd
 
 def startsAt1Index(bd: pd.Series | pd.DataFrame, name: str = "N°"):
